@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Alien = require('../models/alien')
 
-
 router.get('/', async(req,res) => {
     try{
            const aliens = await Alien.find()
@@ -47,6 +46,16 @@ router.patch('/:id',async(req,res)=> {
         res.send('Error')
     }
 
+})
+router.patch('/:id',async(req,res)=>{
+    try{
+        const alien=await Alien.findById(req.params.id)
+        alien.sub=req.body.branch
+        const a1=await alien.remove()
+        res.json(a1)
+    }catch(err){
+        res.send('Error')
+    }
 })
 
 module.exports = router
