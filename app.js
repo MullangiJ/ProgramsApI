@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const url = 'mongodb://localhost:27017/AlienDBex'
+const url = 'mongodb://localhost:27017/DefineDBex'
 
 const app = express()
 
@@ -13,8 +13,8 @@ con.on('open', () => {
 
 app.use(express.json())
 
-const alienRouter = require('./routes/aliens')
-app.use('/aliens',alienRouter)
+const postsRouter = require('./routes/data')
+app.use('/data',postsRouter)
 
 app.listen(4000, () => {
     console.log('Server started')

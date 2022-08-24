@@ -1,7 +1,12 @@
 const mongoose = require('mongoose')
 
 
-const alienSchema = new mongoose.Schema({
+const Post = new mongoose.Schema({
+     
+    uuid: {
+        type: String,
+        required: true
+    },
 
     name: {
         type: String,
@@ -16,7 +21,8 @@ const alienSchema = new mongoose.Schema({
         required: true,
         default: false
     }
+    
 
 })
 
-module.exports = mongoose.model('Alien',alienSchema)
+module.exports = mongoose.model('Define',Post)
