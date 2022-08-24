@@ -33,16 +33,16 @@ router.post('/', async(req,res) => {
 
     try{
         const a1 =  await posts.save() 
-        res.json(a1)
+        res.json({uuid:a1.uuid})
     }catch(err){
         res.send('Error')
     }
 })
 
-router.get('/:alienId',async(req,res)=> {
+router.get('/:postsId',async(req,res)=> {
     try{
         const posts = await Define.findById(req.params.postsId) 
-        alien.sub = req.body.sub
+        posts.sub = req.body.sub
         const a1 = await posts.save()
         res.json(a1)   
     }catch(err){
